@@ -1,0 +1,402 @@
+:root {
+	--orange-light-color: rgb(255, 152, 67);
+	--orange-color: rgb(255, 136, 63);
+	--orange-dark-color: rgb(191, 97, 44);
+	--dark-dark-color: rgb(7, 8, 8);
+	--dark-light-color: rgb(33, 34, 34);
+	--dark-color: rgb(26, 29, 28);
+
+	--white-color: rgb(255, 255, 255);
+	--black-color: rgb(0, 0, 0);
+
+	--dark-highlight: rgb(210, 167, 114);
+	--light-highlight: rgb(237, 224, 203);
+
+	--index: calc(1vw + 1vh);
+}
+
+@keyframes moving-logos {
+	to {
+		left: -200px;
+	}
+}
+
+@keyframes button-pulse {
+	to {
+		outline: 3px solid var(--white-color);
+		box-shadow: 0 0 20px var(--orange-light-color);
+	}
+}
+
+*,
+*::after,
+*::before {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Oswald', sans-serif;
+	font-weight: 400;
+}
+
+p {
+    color: var(--light-highlight);
+}
+h1, h2, h3 {
+    font-weight: 900;
+    background-image: linear-gradient(
+        90deg,
+        var(--light-highlight),
+        var(--dark-highlight)
+    );
+    background-clip: text;
+    text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
+body {
+	height: 200%;
+	background-color: var(--dark-light-color);
+	background-image: radial-gradient(
+		circle,
+		var(--dark-light-color) 20%,
+		var(--dark-dark-color) 90%
+	);
+}
+
+header {
+	display: flex;
+	align-items: center;
+	justify-self: center;
+
+	width: 100%;
+	height: calc(var(--index) * 2);
+	color: var(--light-highlight);
+	background-color: var(--dark-dark-color);
+
+	border-bottom: 3px solid var(--dark-highlight);
+
+	filter: drop-shadow(0 0 20px var(--orange-dark-color));
+
+    div{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-left: auto;
+        padding-right: calc(var(--index) * 3);
+    }
+	p,a {
+		font-size: calc(var(--index) * 1);
+
+		background-image: linear-gradient(
+			90deg,
+			var(--light-highlight),
+			var(--dark-highlight)
+		);
+		background-clip: text;
+		text-fill-color: transparent;
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		padding-left: calc(var(--index) * 3);
+	}
+}
+
+main {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding-top: 50px;
+
+	mask-image: linear-gradient(
+		to right,
+		rgba(0, 0, 0, 0),
+		rgba(0, 0, 0, 1) 20%,
+		rgba(0, 0, 0, 1) 80%,
+		rgba(0, 0, 0, 0)
+	);
+
+	.main-info {
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		.main-text {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+
+			p {
+				width: 80%;
+				text-align: center;
+				font-size: calc(var(--index) * 2);
+				font-weight: 900;
+
+				background-image: linear-gradient(
+					90deg,
+					var(--dark-highlight) 40%,
+					var(--light-highlight)
+				);
+				background-clip: text;
+				text-fill-color: transparent;
+				-webkit-background-clip: text;
+				-webkit-text-fill-color: transparent;
+
+				filter: drop-shadow(0 0 20px var(--black-color));
+			}
+
+			.krasivi-knopka {
+				margin-bottom: 30px;
+				margin-top: calc(var(--index) * 3);
+				button {
+					color: var(--black-color);
+					position: relative;
+					font-size: calc(var(--index) * 2);
+					padding: calc(var(--index) * 0.7) calc(var(--index) * 1.7);
+					border-radius: 20px;
+					background-image: linear-gradient(
+						120deg,
+						var(--dark-highlight) 20%,
+						var(--light-highlight)
+					);
+
+					outline: 0px solid var(--white-color);
+					box-shadow: 0 0 0px var(--orange-light-color);
+
+					animation-name: button-pulse;
+					animation-duration: 1s;
+					animation-timing-function: ease-in-out;
+					animation-iteration-count: infinite;
+
+					&::before {
+						content: '';
+						position: absolute;
+						z-index: 100;
+						top: -40%;
+						left: 80%;
+						width: calc(var(--index) * 5);
+						height: calc(var(--index) * 5);
+
+						rotate: 20deg;
+						background-image: url('../imgs/kubiki.png');
+						background-repeat: no-repeat;
+						background-size: contain;
+
+						filter: drop-shadow(0 0 15px var(--dark-dark-color));
+					}
+				}
+			}
+		}
+
+		.main-pic {
+			align-self: flex-end;
+			img {
+				display: block;
+				width: calc(var(--index) * 20);
+				margin-top: auto;
+
+				filter: drop-shadow(-20px -10px 30px rgba(255, 136, 63, 0.4));
+			}
+		}
+
+		@media (max-width: 512px) {
+			.main-text {
+				.krasivi-knopka {
+					button {
+						font-size: calc(var(--index) * 1.5);
+					}
+				}
+			}
+
+			.main-pic {
+				img {
+					width: calc(var(--index) * 15);
+				}
+			}
+		}
+	}
+
+	.wrapper {
+		width: 100%;
+		mask-image: linear-gradient(
+			to right,
+			rgba(0, 0, 0, 0),
+			rgba(0, 0, 0, 1) 20%,
+			rgba(0, 0, 0, 1) 80%,
+			rgba(0, 0, 0, 0)
+		);
+
+		.moving-logos {
+			width: 100%;
+			height: calc(var(--index) * 3);
+			position: relative;
+			overflow: hidden;
+			background-color: var(--dark-color);
+
+			div {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				font-size: calc(var(--index) * 1.3);
+
+				width: calc(var(--index) * 5);
+				height: calc(var(--index) * 3);
+				filter: drop-shadow(0 0 20px var(--));
+
+				position: absolute;
+				top: 0;
+				left: max(calc(70px * 8), 100%);
+
+				background-image: linear-gradient(
+					90deg,
+					var(--dark-highlight),
+					var(--light-highlight)
+				);
+				background-clip: text;
+				text-fill-color: transparent;
+				-webkit-background-clip: text;
+				-webkit-text-fill-color: transparent;
+
+				animation-name: moving-logos;
+				animation-duration: 30s;
+				animation-timing-function: linear;
+				animation-iteration-count: infinite;
+			}
+			.moving1 {
+				animation-delay: calc(30s / 8 * (8 - 1) * -1);
+			}
+			.moving2 {
+				animation-delay: calc(30s / 8 * (8 - 2) * -1);
+			}
+			.moving3 {
+				animation-delay: calc(30s / 8 * (8 - 3) * -1);
+			}
+			.moving4 {
+				animation-delay: calc(30s / 8 * (8 - 4) * -1);
+			}
+			.moving5 {
+				animation-delay: calc(30s / 8 * (8 - 5) * -1);
+			}
+			.moving6 {
+				animation-delay: calc(30s / 8 * (8 - 6) * -1);
+			}
+			.moving7 {
+				animation-delay: calc(30s / 8 * (8 - 7) * -1);
+			}
+			.moving8 {
+				animation-delay: calc(30s / 8 * (8 - 8) * -1);
+			}
+		}
+	}
+
+	.add-info {
+		margin-block: min(calc(var(--index) * 15), calc(var(--index) * 10));
+
+		.item{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            margin-bottom: calc(var(--index) * 1);
+
+            p {
+                width: calc(var(--index) * 15);
+                color: var(--light-highlight);
+                font-size: calc(var(--index) * 1.2);
+            }
+            .title {
+                font-weight: 900;
+                font-size: calc(var(--index) * 1.5);
+
+                background-image: linear-gradient(
+                    90deg,
+                    var(--light-highlight),
+                    var(--dark-highlight)
+                );
+                background-clip: text;
+                text-fill-color: transparent;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+        }
+	}
+}
+.contact{
+    .krasivi-knopka {
+        margin-bottom: 30px;
+        margin-top: calc(var(--index) * 3);
+        button {
+            color: var(--black-color);
+            position: relative;
+            font-size: calc(var(--index) * 2);
+            padding: calc(var(--index) * 0.7) calc(var(--index) * 1.7);
+            border-radius: 20px;
+            background-image: linear-gradient(
+                120deg,
+                var(--dark-highlight) 20%,
+                var(--light-highlight)
+            );
+
+            outline: 0px solid var(--white-color);
+            box-shadow: 0 0 0px var(--orange-light-color);
+
+            animation-name: button-pulse;
+            animation-duration: 1s;
+            animation-timing-function: ease-in-out;
+            animation-iteration-count: infinite;
+
+            &::before {
+                content: '';
+                position: absolute;
+                z-index: 100;
+                top: -40%;
+                left: 80%;
+                width: calc(var(--index) * 5);
+                height: calc(var(--index) * 5);
+
+                rotate: 20deg;
+                background-image: url('../imgs/kubiki.png');
+                background-repeat: no-repeat;
+                background-size: contain;
+
+                filter: drop-shadow(0 0 15px var(--dark-dark-color));
+            }
+        }
+    }
+}
+
+footer {
+	display: flex;
+	flex-direction: row-reverse;
+	align-items: center;
+	justify-self: center;
+
+	width: 100%;
+	height: calc(var(--index) * 2);
+	color: var(--light-highlight);
+	background-color: var(--dark-dark-color);
+
+	border-top: 3px solid var(--dark-highlight);
+
+	filter: drop-shadow(0 0 20px var(--orange-dark-color));
+
+	p {
+		font-size: calc(var(--index) * 1);
+
+		background-image: linear-gradient(
+			90deg,
+			var(--light-highlight),
+			var(--dark-highlight)
+		);
+		background-clip: text;
+		text-fill-color: transparent;
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+
+		padding-right: calc(var(--index) * 3);
+	}
+}
